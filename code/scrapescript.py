@@ -12,7 +12,9 @@ import os
 import re
 import csv
 
-with open('./data/deadpool.html') as file:
+screenplay = "toystory"
+
+with open('./data/'+ screenplay + '.html') as file:
     soup = BeautifulSoup(file,'html.parser')
 
 #Dictionary of movie characters
@@ -22,12 +24,12 @@ movie_alias = dict()
 
 
 #Read the csv alias file and store it in movie_alias
-with open('./data/deadpool_alias.csv', 'rb') as aliases:
+with open('./data/' + screenplay + '_alias.csv', 'rb') as aliases:
     reader = csv.reader(aliases)
     for row in reader:
         movie_alias[row[0]] = set()
 
-file_path = os.path.abspath('./out/updated_script.txt')
+file_path = os.path.abspath('./out/' + screenplay + '_updated.txt')
 with open(file_path,'w+') as updated_file:
     for b in soup.select('b'):
         #remove extra whitespace
@@ -65,10 +67,12 @@ with open(file_path,'w+') as updated_file:
         dialogue = re.sub(r'[:]','',dialogue)
         dialogue = re.sub(r'\.{3}',' ', dialogue)
         dialogue = re.sub(r'\s+',' ', dialogue)
+        dialogue = re.sub(r'[\'\"]',' ', dialogue)
         dialogue = dialogue.strip()
         action = re.sub(r'[:]','',action)
         action = re.sub(r'\.{3}', ' ', action)
         action = re.sub(r'\s+', ' ', action)
+        action = re.sub(r'[\'\"]',' ', action)
         action = action.strip()
 
         if dialogue != "":
