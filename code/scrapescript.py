@@ -12,7 +12,10 @@ import os
 import re
 import csv
 
-screenplay = "toystory"
+screenplay = "oceanseleven"
+
+#No. of spaces that offset the dialogue
+dialogue_offset = "            "
 
 with open('./data/'+ screenplay + '.html') as file:
     soup = BeautifulSoup(file,'html.parser')
@@ -47,15 +50,15 @@ with open(file_path,'w+') as updated_file:
             character = element
         if isinstance(b.next_sibling, Tag):
             continue
-
-        block = b.next_sibling.encode(encoding="UTF-8")
+        if(b.next_sibling):
+            block = b.next_sibling.encode(encoding="UTF-8")
         block = re.sub(r'\([^)]*\)', '', block, re.M)
         lines = []
         lines = block.split('\n')
         dialogue = ""
         action = ""
         for line in lines:
-            if line.startswith("           "):
+            if line.startswith(dialogue_offset):
                 line = line.strip()
                 if line != "" and character != "":
                     dialogue = dialogue + " " + line

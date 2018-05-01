@@ -5,7 +5,7 @@ ANDY: Alright everyone, this is a stick- up! Don t anybody move! Now empty that 
 ###  [A GROUP OF TOYS have been crowded together in front of the  BANK  box. Andy s hand lowers a CERAMIC PIGGY BANK in front of Mr. Potato_Head and shakes out a pile of coins to the floor. Mr. Potato_Head kisses the coins.]
 ANDY: Ooh! Money. Money. Money.
 ###  [A porcelain figurine of the shepherdess, BO_PEEP, is brought into the scene.]
-ANDY: Stop it! Stop it, you mean old MR_POTATO_HEAD!
+ANDY: Stop it! Stop it, you mean old potato!
 ANDY: Quiet Bo_Peep, or your sheep get run over!
 ###  [The companion porcelain sheep are placed in the center of a Hot Wheels track loop.]
 ANDY: Heeeeelp! BAAAAA! Heeeelp us!
@@ -1622,3 +1622,5 @@ WOODY: Now Buzz, what could Andy possibly get that is worse than you?!
 ANDY: Oh, what is it? What is it?
 ANDY: Wow! A puppy!
 ###  [We ZOOM BACK through the window to a CLOSE UP of Buzz and Woody. They look at one another with a half-smile, half-grimace and]
+###  [  ]
+###  [  ]
