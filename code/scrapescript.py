@@ -12,12 +12,12 @@ import os
 import re
 import csv
 
-screenplay = "oceanseleven"
+screenplay = "bladeII"
 
 #No. of spaces that offset the dialogue
-dialogue_offset = "            "
+dialogue_offset = "                      "
 
-with open('./data/'+ screenplay + '.html') as file:
+with open('./data/html/'+ screenplay + '.html') as file:
     soup = BeautifulSoup(file,'html.parser')
 
 #Dictionary of movie characters
@@ -27,19 +27,20 @@ movie_alias = dict()
 
 
 #Read the csv alias file and store it in movie_alias
-with open('./data/' + screenplay + '_alias.csv', 'rb') as aliases:
+with open('./data/alias/' + screenplay + '.csv', 'rb') as aliases:
     reader = csv.reader(aliases)
     for row in reader:
         movie_alias[row[0]] = set()
 
-file_path = os.path.abspath('./out/' + screenplay + '_updated.txt')
+file_path = os.path.abspath('./data/screenplays/' + screenplay + '.txt')
 with open(file_path,'w+') as updated_file:
+    updated_file.write('----------------------------------------\n')
     for b in soup.select('b'):
         #remove extra whitespace
         element = b.text.strip()
         #remove words in parentheses to get rid of (CONTD.)
         element = re.sub(r'\([^)]*\)', '', element)
-        element = element.strip()
+        element = element.strip().encode(encoding='UTF-8')
 
         character = ""
         if "INT." in element or "EXT." in element:
